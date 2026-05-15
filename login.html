@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Login</title>
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/app_layout.css"> 
+    <script src="./js/login.js" defer></script>
+
+</head>
+<body>
+    <main id="main-content" class="main-layout show"> 
+        <header class="header"> 
+            <img src="./assets/img/logo/join_logo.png" class="logo" id="header-logo"> 
+            <div class="header-action">
+                <span>Not a Join user?</span>
+                <button class="btn-primary" onclick="goToSignUp()">Sign up</button>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="card">
+                <h1>Log in</h1>
+                <div class="blue-underline"></div>
+
+                <form onsubmit="login(); return false;" class="form-login-form">
+                    <div class="input-wrapper">
+                        <input type="email" required id="email" autocomplete="email" placeholder="Email">
+                        <!-- Generic Mail Icon -->
+                        <span class="input-icon mail-icon">&#9993;</span>
+                    </div>
+                    
+                    <div class="input-wrapper">
+                        <input type="password" required id="password" autocomplete="current-password" placeholder="Password">
+                        <!-- Generic Lock Icon -->
+                        <span class="input-icon lock-icon">&#128274;</span>
+                    </div>
+
+                    <div id="msgBox" class="message-box"></div>
+
+                    <div class="btn-container">
+                        <button type="submit" class="btn-primary">Log in</button>
+                        <button type="button" class="btn-guest" onclick="guestLogin()">Guest Log in</button>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="privacy_policy.html">Privacy Policy</a>
+        <a href="legal_notice.html">Legal Notice</a>
+    </footer>
+
+
+</body>
+</html>

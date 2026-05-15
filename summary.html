@@ -5,9 +5,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Summary</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="./css/app_layout.css">
+    <link rel="stylesheet" href="./css/summary_style.css">
+    <script src="script.js" defer></script>
+    <script src="./js/summary.js" defer></script>
+    <script src="./js/login.js" defer></script>
+    <script src="./js/register.js"></script>
 </head>
-<body>
+<body onload="checkAuthentication(); initSummary();">
+    
+    <div class="app-shell">
+        
+        <!-- Sidebar Navigation (aside) - Dark navy background based on image_2.png -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <!-- User's corrected logo path -->
+                <img src="./assets/img/logo/logo-white.png" alt="Join Logo" class="sidebar-logo">
+            </div>
+            
+            <div class="nav-links">
+                <a href="summary.html" class="nav-item active">
+                    <img src="./assets/icons/summary.png" alt="" class="nav-icon">
+                    Summary
+                </a>
+                <a href="add_task.html" class="nav-item">
+                    <img src="./assets/icons/addtask.png" alt="" class="nav-icon">
+                    Add Task
+                </a>
+                <a href="board.html" class="nav-item">
+                    <img src="./assets/icons/board.png" alt="" class="nav-icon">
+                    Board
+                </a>
+                <a href="contacts.html" class="nav-item">
+                    <img src="./assets/icons/contacts.png" alt="" class="nav-icon">
+                    Contacts
+                </a>
+            </div>
+            
+            <div class="sidebar-footer">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Legal notice</a>
+            </div>
+        </nav>
+
+        <!-- Main Area (Header + Content) -->
+        <div class="main-content-wrapper">
+            
+            <!-- Topbar Header -->
+            <header class="app-header">
+                <span class="app-title">Kanban Project Management Tool</span>
+                
+                <div class="header-user-actions">
+                    <button class="icon-btn help-btn">
+                        <img src="./assets/icons/help.png" alt="Help">
+                    </button>
+                    <!-- User Circle Initials based on image_2.png -->
+                    <div class="user-initials" id="userInitials">CS</div>
+                    <button class="logout-button" onclick="logout()">Log out</button>
+                </div>
+            </header>
+
+            <!-- Dynamic Content Area -->
+            <main class="content-panel" id="content">
+                <div class="summary-content-container">
+                    
+                    <!-- Left-PART: statístics -->
+                    <div class="main-stats">
+                        <div class="summary-header">
+                            <h1>Join 360</h1>
+                            <div class="vertical-separator"></div>
+                            <span>Key metrics at Glance</span>
+                        </div>
+
+                        <div class="metrics-container">
+                            <!-- row 1: To-do y Done -->
+                            <div class="metrics-row">
+                                <div class="summary-card card-small">
+                                    <div class="icon-circle navy">
+                                        <img src="./assets/icons/summary_todo_hover.svg" alt="Todo">
+                                    </div>
+                                    <div class="tile-info">
+                                        <span class="count" id="todo-count">1</span>
+                                        <span class="label">To-do</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="summary-card card-small">
+                                    <div class="icon-circle navy">
+                                        <img src="./assets/icons/summary_done_hover.svg" alt="Done">
+                                    </div>
+                                    <div class="tile-info">
+                                        <span class="count" id="done-count">0</span>
+                                        <span class="label">Done</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- row 2: Urgent Wide Card -->
+                            <div class="summary-card card-wide">
+                                <div class="tile-left">
+                                    <div class="icon-circle orange">
+                                        <img src="./assets/icons/urgent_todo.svg" alt="Urgent">
+                                    </div>
+                                    <div class="tile-info">
+                                        <span class="count" id="urgent-count">1</span>
+                                        <span class="label">Urgent</span>
+                                    </div>
+                                </div>
+                                <div class="separator-v"></div>
+                                <div class="tile-right">
+                                    <span class="date">May 16, 2026</span>
+                                    <span class="date-label">Upcoming Deadline</span>
+                                </div>
+                            </div>
+
+                            <!-- row 3: Mini Cards -->
+                            <div class="metrics-row">
+                                <div class="summary-card card-mini">
+                                    <span class="count" id="board-count">5</span>
+                                    <span class="label">Tasks in Board</span>
+                                </div>
+                                <div class="summary-card card-mini">
+                                    <span class="count" id="progress-count">2</span>
+                                    <span class="label">Tasks in Progress</span>
+                                </div>
+                                <div class="summary-card card-mini">
+                                    <span class="count" id="feedback-count">1</span>
+                                    <span class="label">Awaiting Feedback</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="greeting-section">
+                        <h2 id="greetingText">Good morning,</h2>
+                        <h1 id="userNameDisplay">User Name</h1>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <nav class="mobile-footer">
+    <a href="summary.html" class="footer-item">
+        <img src="./assets/icons/summary.svg" alt="">
+        <span>Summary</span>
+    </a>
+    <a href="add_task.html" class="footer-item">
+        <img src="./assets/icons/add_task.svg" alt="">
+        <span>Add Task</span>
+    </a>
+    <a href="board.html" class="footer-item">
+        <img src="./assets/icons/board.svg" alt="">
+        <span>Board</span>
+    </a>
+    <a href="contacts.html" class="footer-item">
+        <img src="./assets/icons/contacts.svg" alt="">
+        <span>Contacts</span>
+    </a>
+</nav>
+
+    <!-- Scripts are better at the end -->
+    
 
 </body>
 </html>

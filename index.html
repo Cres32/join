@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join - Project Management</title>
+    <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="style.css">
-
+    <title>Join</title>
 </head>
-<body>
-    
+<body onload="init()"> 
+    <div id="splash-overlay" class="splash-overlay"> 
+        <img src="./assets/img/logo/join_logo.png" class="logo-animated" alt="Join Logo"> 
+    </div>
+
+    <main id="main-content" class="main-layout d-none"> 
+        <header class="header"> 
+            <img src="./assets/img/logo/join_logo.png" class="header-logo" id="header-logo"> 
+        </header>
+    <section class="content"></section>
+     
+    </main>
+
+    <script src="./js/login.js"></script>
 </body>
 </html>
