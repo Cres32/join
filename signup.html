@@ -16,6 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Sign Up</title>
+    <link rel="icon" type="image/png" href="./assets/img/logo/fav_icon.png">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./css/app_layout.css">
@@ -24,14 +25,13 @@
 </head>
 <body>
     <div class="main-layout">
-        
-        <header class="header signup-header"> <!-- Añadimos 'signup-header' -->
+        <header class="auth-header signup-header">
             <img src="./assets/img/logo/join_logo.png" alt="Join Logo" class="logo">
         </header>
 
         <main class="content">
             <div class="card signup-card">
-                <!-- Back arrow linking to login -->
+                
                 <div class="blue-arrow">
                     <a href="login.html" class="back-arrow">&larr;</a>
                     <h1>Sign up</h1>
@@ -42,26 +42,30 @@
                 <form onsubmit="addUser(); return false;" class="form signup-form">
                     <div class="input-wrapper">
                         <input type="text" id="name" required placeholder="Name">
-                        <!-- Generic Person Icon -->
-                        <span class="input-icon person-icon">&#128100;</span>
+                    <span class="input-icon">
+                        <img src="./assets/icons/person.svg" alt="name icon">
+                    </span>
                     </div>
 
                     <div class="input-wrapper">
                         <input type="email" id="email" required placeholder="Email">
-                        <!-- Generic Mail Icon -->
-                        <span class="input-icon mail-icon">&#9993;</span>
+                        <span class="input-icon">
+                            <img src="./assets/icons/mail.svg" alt="email icon">
+                        </span>
                     </div>
                     
                     <div class="input-wrapper">
                         <input type="password" id="password" required placeholder="Password">
-                        <!-- Generic Lock Icon -->
-                        <span class="input-icon lock-icon">&#128274;</span>
+                        <span class="input-icon">
+                            <img src="./assets/icons/lock.svg" alt="lock icon">
+                        </span>
                     </div>
 
                     <div class="input-wrapper">
                         <input type="password" id="confirmPassword" required placeholder="Confirm Password">
-                        <!-- Generic Lock Icon -->
-                        <span class="input-icon lock-icon">&#128274;</span>
+                        <span class="input-icon">
+                            <img src="./assets/icons/lock.svg" alt="lock icon">
+                        </span>
                     </div>
 
                     <div class="privacy-wrapper">

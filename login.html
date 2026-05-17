@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Login</title>
+    <link rel="icon" type="image/png" href="./assets/img/logo/fav_icon.png">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./css/app_layout.css"> 
@@ -13,7 +14,7 @@
 <body>
     <main id="main-content" class="main-layout show"> 
         <header class="header"> 
-            <img src="./assets/img/logo/join_logo.png" class="logo" id="header-logo"> 
+            <img src="./assets/img/logo/join_logo.png" class="logo" id="header-logo" alt="Join Logo"> 
             <div class="header-action">
                 <span>Not a Join user?</span>
                 <button class="btn-primary" onclick="goToSignUp()">Sign up</button>
@@ -28,14 +29,12 @@
                 <form onsubmit="login(); return false;" class="form-login-form">
                     <div class="input-wrapper">
                         <input type="email" required id="email" autocomplete="email" placeholder="Email">
-                        <!-- Generic Mail Icon -->
-                        <span class="input-icon mail-icon">&#9993;</span>
+                        <img src="./assets/icons/mail.svg" class="input-icon">
                     </div>
                     
                     <div class="input-wrapper">
                         <input type="password" required id="password" autocomplete="current-password" placeholder="Password">
-                        <!-- Generic Lock Icon -->
-                        <span class="input-icon lock-icon">&#128274;</span>
+                        <img src="./assets/icons/lock.svg" class="input-icon">
                     </div>
 
                     <div id="msgBox" class="message-box"></div>
@@ -48,12 +47,12 @@
                 </form>
             </div>
         </section>
-    </main>
 
-    <footer class="footer">
-        <a href="privacy_policy.html">Privacy Policy</a>
-        <a href="legal_notice.html">Legal Notice</a>
-    </footer>
+        <footer class="footer">
+            <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="legal_notice.html">Legal Notice</a>
+        </footer>
+    </main>
 
 
 </body>

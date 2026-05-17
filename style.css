@@ -24,7 +24,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'inter', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 /* body, input, button {
@@ -32,9 +32,9 @@
 } */
 
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    margin: 0;
     overflow-x: hidden;
+    height: 100vh;
 }
 
 .d-none {
@@ -54,6 +54,34 @@ body {
     transition: background-color 0.8s ease;
 }
 
+/* --- KEYFRAMES --- */
+
+@keyframes directMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(calc(-50vw + 100px), calc(-50vh + 80px)) scale(0.3);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+h1 {
+    font-size: 61px;
+    font-weight: 700;
+}
 .splash-overlay.fade-background {
     background-color: rgba(42, 54, 71, 0);
     pointer-events: none;
@@ -68,9 +96,8 @@ body {
 .main-layout {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-    background-color: var(--background-color);
-    opacity: 1;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .main-layout.show {
@@ -81,62 +108,87 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
-
-.header {
-    position: relative;
+/* --- Header Global (Index, Login y Sign Up) --- */
+header, .header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    padding: 40px 80px;
-    min-height: 120px;
+    padding: 20px 80px;
+    width: 100%;
+    min-height: auto;
+    box-sizing: border-box;
 }
 
-#header-logo {
-    position: absolute;
-    left: 80px;
-    top: 40px;
-    width: 100px;
-    transition: opacity 0.3s ease;
+#header-logo, .header .logo {
+    position: static;
+    width: 140px; 
+    height: auto;
+    display: block;
+}
+
+.header.signup-header {
+    justify-content: flex-start !important;
 }
 
 .header-action {
     display: flex;
     align-items: center;
-    white-space: nowrap;
     gap: 35px;
+    white-space: nowrap;
 }
 
 .header-action span {
     font-size: 16px;
 }
 
-.header.signup-header {
-    justify-content: flex-start !important;
-    position: static;
-}
-
-
-.header.signup-header .logo {
-    margin-left: 0;
-}
-
-
 .card {
-    background: var(--white);
+    background-color: var(--white);
+    border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
-    border-radius: 30px;
-    padding: 64px 40px;
-    width: 100%;
-    max-width: 422px;
+    width: 652px;
+    padding: clamp(20px, 4vh, 48px) 115px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: clamp(10px, 2vh, 32px);  
+    margin: 0 auto;
     box-sizing: border-box;
+    max-height: calc(100vh - 200px); 
+    overflow-y: auto;
 }
 
 .card h1 {
-    font-weight: 700; 
+    font-size: 61px; 
+    font-weight: 700;
+    margin: 0;
+}
+
+.blue-underline {
+    width: 150px;
+    height: 3px;
+    background-color: var(--main-blue);
+    margin-top: -16px;
+}
+
+/* --- Sign Up Card --- */
+.card.signup-card {
+    width: 598px;
+    min-height: 630px; 
+    height: auto;
+    border-radius: 30px;
+    padding: 48px 88px;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white);
+    box-shadow: var(--card-shadow);
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow: visible;
 }
 
 .signup-form {
@@ -144,6 +196,45 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 24px; 
+}
+
+.signup-form .input-wrapper {
+    width: 122px;
+    width: 422px; 
+    height: 48px;
+}
+
+#signup-btn {
+    width: 126px;
+    height: 55px;
+    padding: 15px 24px;
+    border-radius: 8px;
+    background-color: #2A3647 !important;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.privacy-wrapper label {
+    color: #A8A8A8;
+    font-size: 16px;
+}
+
+.privacy-wrapper a {
+    color: #29ABE2;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.privacy-wrapper a:hover {
+    text-decoration: underline;
 }
 
 .success-banner {
@@ -188,71 +279,45 @@ body {
     margin: 0; 
 }
 
-/* --- KEYFRAMES --- */
-
-@keyframes directMove {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-    100% {
-        transform: translate(calc(-50vw + 100px), calc(-50vh + 80px)) scale(0.3);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.fade-in {
-    animation: fadeIn 0.5s ease-in forwards;
-}
-
-.blue-underline {
-    background-color: var(--secondary-color);
-    height: 3px;
-    width: 150px;
-    display: block;
-    margin: 8px auto 48px auto;
-}
-
-h1 {
-    font-size: 61px;
-    font-weight: 700;
-}
-
 .input-wrapper {
     position: relative;
-    width: 100%;
-    margin-bottom: 24px;
-    display: flex;
-    justify-content: center;
+    width: 422px;
+    height: 48px;
 }
 
 .input-wrapper input {
     width: 100%;
-    box-sizing: border-box;
-    padding: 12px 45px 12px 21px;
+    height: 100%;
+    padding: 12px 21px; 
+    padding-right: 50px;    
     border: 1px solid var(--border-grey);
     border-radius: 10px;
-    font-size: 16px;
-    outline: none;
-    height: 48px;
+    background-color: var(--white);
+    font-size: 20px;
+    box-sizing: border-box;
+
 }
 
 .input-icon {
     position: absolute;
     right: 21px;
-    color: var(--border-grey);
-    font-size: 30px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
     pointer-events: none;
+}
+
+.input-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+input::placeholder {
+    color: #D1D1D1;
+    font-weight: 400;
+    opacity: 1;
 }
 
 .form-login-form {
@@ -260,43 +325,57 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 32px;
 }
 
 .btn-container {
-    width: 100%;
     display: flex;
-    gap: 20px;
     justify-content: center;
-    margin-top: 40px;
+    gap: 35px;
+    margin-top: 8px;
+    width: 100%;
 }
 
 .btn-primary {
-    width: 40%;
+    /* Dimensiones */
+    width: 110px; 
+    height: 48px;
+    padding: 15px 24px;
     background-color: var(--primary-color);
-    color: white;
-    padding: 8px 16px;
+    color: var(--white);
     border-radius: 8px;
     border: none;
-    font-weight: bold;
+    font-size: 21px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 .btn-guest {
-    width: 60%;
+    width: 177px;
+    height: 48px;
+    padding: 15px 24px;
     background-color: var(--white);
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     border-radius: 8px;
-    padding: 12px 24px;
+    font-size: 21px;
     font-weight: 700;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease;
 }
 
 .btn-guest:hover {
-    border: 2px solid var(--secondary-color);
+    border-color: var(--secondary-color);
     color: var(--secondary-color);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:disabled {
@@ -311,21 +390,19 @@ h1 {
 }
 
 .footer {
-    position: absolute; 
-    bottom: 40px;
-    left: 0;
-    right: 0;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
+    align-items: center;
     gap: 32px;
+    padding: 20px 0;
     width: 100%;
 }
 
 .footer a {
-    color: var(--border-grey);
+    font-size: 16px;
+    color: #A8A8A8;
     text-decoration: none;
-    font-size: 14px;
-    transition: color 0.1s ease-in-out;
+    transition: color 0.2s ease;
 }
 
 .footer a:hover {
