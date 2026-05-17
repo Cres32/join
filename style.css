@@ -410,6 +410,11 @@ input::placeholder {
     font-weight: 700;
 }
 
+.blue-underline {
+    width: 150px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
 /* --- Responsiveness --- */
 @media(max-width: 500px) {
     .card {
